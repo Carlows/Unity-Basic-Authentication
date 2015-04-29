@@ -1,0 +1,31 @@
+﻿@model BasicAuthentication.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<div class="container">
+    <div class="col-md-4">
+        @Html.Action("ProfileImage", "Account")
+
+        @using (Html.BeginForm("UploadProfilePicture",
+                        "Account",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
+        {
+            <label for="file">Browse image:</label>
+            <input type="file" name="file" id="file" /><br />
+            <input class="btn btn-primary btn-block" type="submit" value="Upload" />
+        }
+
+
+    </div>
+    <div class="col-md-8">
+        <h2>@Model.username</h2>
+
+        <p class="text-justify">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Nunc egestas, 
+        augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris.
+        In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lorem ante, dapibus in, 
+        viverra quis, feugiat a, tellus. Vivamus elementum semper nisi.</p>
+    </div>
+</div>

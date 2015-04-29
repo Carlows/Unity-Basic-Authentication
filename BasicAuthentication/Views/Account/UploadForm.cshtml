@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "UploadForm";
+}
+
+<h2>Upload Profile Picture</h2>
+
+@using (Html.BeginForm("UploadProfilePicture",
+                        "Account",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
+{
+    <label for="file">Browse image:</label>
+    <input type="file" name="file" id="file" /><br><br>
+    <input class="btn btn-success" type="submit" value="Upload" />
+}
+

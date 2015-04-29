@@ -1,0 +1,48 @@
+﻿@using BasicAuthentication.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="site-wrapper">
+
+        <div class="site-wrapper-inner @Html.IsIndex()">
+            
+            <div class="cover-container">
+
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand">Demo</h3>
+                        <nav>
+                            <ul class="nav masthead-nav">
+                                <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                                @Html.Partial("_LoginPartial")
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                @RenderBody()
+
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p>Test Website for UNITY3D.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
